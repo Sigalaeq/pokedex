@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PokeapiService } from '../pokeapi.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,14 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private pokemonService: PokeapiService) { }
+  Pokemondata: any;
+
+  ngOnInit() {
+    this.pokemonService.getListPokemones().subscribe((data) => {
+      this.Pokemondata = data.results;
+      console.log(data.results);
+    });
+  }
 
 }
