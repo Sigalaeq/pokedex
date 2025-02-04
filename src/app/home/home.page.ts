@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { PokeapiService } from '../pokeapi.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,4 +20,8 @@ export class HomePage {
     });
   }
 
+  verDetalle(url: string) {
+    console.log(url);
+    // console.log('ok')
+  }
 }

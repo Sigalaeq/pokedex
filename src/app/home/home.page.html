@@ -9,7 +9,7 @@
 <ion-content [fullscreen]="true">
 
   <ng-container *ngFor="let pokemon of Pokemondata">
-    <ion-card>
+    <ion-card (click)="verDetalle(pokemon.url)">
       <ion-card-header>
         <ion-card-title class=" playwrite-in">{{ pokemon.name }}</ion-card-title>
       </ion-card-header>
