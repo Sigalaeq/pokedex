@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage {
 
-  constructor(private pokemonService: PokeapiService) { }
+  constructor(private pokemonService: PokeapiService, private router: Router) { }
   Pokemondata: any;
 
   ngOnInit() {
@@ -20,8 +20,19 @@ export class HomePage {
     });
   }
 
+  obtenerId(url: any) {
+    const regex = /\/(\d+)\//;
+    const match = url.match(regex);
+
+    if (match) {
+      return match[1];
+    } else {
+      return "no se encontro tilin";
+    }
+  }
+
   verDetalle(url: string) {
     console.log(url);
-    // console.log('ok')
+    this.router.navigate(['/detalle', this.obtenerId(url)]);
   }
 }
